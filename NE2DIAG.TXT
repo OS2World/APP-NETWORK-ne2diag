@@ -1,0 +1,62 @@
+ne2diag quick docs:
+
+Just run it and watch the screen!
+
+commandline:	ne2diag [ioport] [irq]
+
+examples:	ne2diag 320 12
+		ne2diag 280 5
+		ne2diag 320
+
+The ioport and irq parameters are optional, and have default values: 340 and 9
+at time of release. I don't know for sure, but this may also work with PCI
+NE-2000's; this is untested though. You'll probably need to download my PCI
+info program to find out the IOPORT of a PCI NE-2000 however.
+
+At this time the actual card settings are not actually verified - your own risk
+of a crash if you guess wrong. You probably guessed the ioaddress wrong if the
+ethernet address comes up as FF:FF:FF:FF:FF:FF. (try 280,300,320,340 & 360 as
+these are the most likely ones.) You probably guessed the irq wrong if you are
+sure there's traffic on the cable, but nothing happens onscreen.
+
+This program is designed to be run from a plain-dos environment with NO NETWORK
+CARD DRIVERS LOADED. It will run under Win95 IF Win95 itself is not also trying
+to use the network card. If you run in a Win95/network environment, I recommend
+you use 'Restart in MS-DOS mode' before using this program. Operation under
+WinNT is probably impossible.
+
+Oh, the following keys do something:
+
+ESC	Quit
+B	Toggle display of hex-dump of most recently received packet
++ -	Adjust size of recent packets window; smaller window is faster; may
+	help avoid buffer overflows on slower PC's.
+S	Toggle sending of packets. A sent packet is 1500 bytes long and
+	contains 00 to FF hex, repeated over and over. Useful for deliberately
+	trying to overload a network and/or verifying basic communication
+	between two or more machines.
+
+
+Other notes:
+
+An Rx buffer overflow means that the PC can't keep up with the sheer rate of
+incoming packets - I find a 486-25 is probably a minimum spec for this task;
+obviously the faster the PC the less likely you are to have problems. Don't
+expect a 286 to keep up!
+
+It is assumed you know what packets, MAC addresses and other network
+terminologies are. If not, don't expect to make sense of this program! I use
+standard naming conventions throughout, so anyone familiar with networks should
+be quite at home.
+
+Full sorcecode is included. Do what you like with it... it's freeware. I'd
+appreciate hearing from anyone who makes use of this program.
+
+
+
+Visit my home page for the latest version:
+members.hyperlink.net.au/~chart
+
+Email me:
+chart@hyperlink.net.au
+
